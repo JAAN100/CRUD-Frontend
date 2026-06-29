@@ -1,7 +1,7 @@
 import {React, useEffect} from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
-function Users(users , setUsers){
+function Users({  }){
   useEffect(()=>{
     axios.get('https://crud-server-lake.vercel.app/api/users')
     .then(result => setUsers(result.data))

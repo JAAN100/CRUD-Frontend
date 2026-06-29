@@ -2,7 +2,7 @@ import {React , useState , useEffect} from "react";
 import { Link } from "react-router-dom";
 import { useParams , useNavigate} from "react-router-dom";
 import axios from "axios";
-function UpdateUser(setUsers){
+function UpdateUser({setUsers}){
   const {userID} = useParams();
   const [name , setName] = useState();
   const [email , setEmail] = useState();
