@@ -1,7 +1,7 @@
 import {React, useState} from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-function CreateUser(){
+function CreateUser({setUsers}){
   const [name , setName] = useState();
   const [email , setEmail] = useState();
   const [age , setAge] =useState();
@@ -9,7 +9,10 @@ function CreateUser(){
   const Submit = (e)=>{
     e.preventDefault();
     axios.post("https://crud-server-lake.vercel.app/api/createUser" , {name , email , age})
-    .then(navigate("/"));
+    .then((result)=>{
+      setUsers(result.data);
+      navigate("/")
+    });
   }
   return(
     <div className="d-flex vh-100 bg-primary justify-content-center align-items-center">

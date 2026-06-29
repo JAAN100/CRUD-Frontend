@@ -10,7 +10,7 @@ function App() {
   return (
     <Routes>
       <Route index element={<Users users={users} setUsers={setUsers}/>}></Route>
-      <Route path="create" element={<CreateUser />}></Route>
+      <Route path="create" element={<CreateUser setUsers={setUsers}/>}></Route>
       <Route path="update/:userID" element={<UpdateUser setUsers={setUsers}/>}></Route>
       <Route path="*" element={<NotFound />}></Route>
     </Routes>
