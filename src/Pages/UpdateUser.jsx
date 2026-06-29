@@ -2,7 +2,7 @@ import {React , useState , useEffect} from "react";
 import { Link } from "react-router-dom";
 import { useParams , useNavigate} from "react-router-dom";
 import axios from "axios";
-function UpdateUser(){
+function UpdateUser(setUsers){
   const {userID} = useParams();
   const [name , setName] = useState();
   const [email , setEmail] = useState();
@@ -16,7 +16,10 @@ function UpdateUser(){
   const Submit = (e)=>{
     e.preventDefault();
     axios.put("https://crud-server-lake.vercel.app/api/updateUser/"+userID , {name , email , age})
-    .then(navigate("/"))
+    .then((result) => {
+      setUsers(result.data);
+      navigate("/")
+    })
     .catch(err => {console.log(err);
     }); 
   }
