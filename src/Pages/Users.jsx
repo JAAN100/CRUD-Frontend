@@ -24,7 +24,7 @@ function Users(){
           <tbody>
             {users.map((user)=>{
               const deleteEntry = ()=>{
-                axios.delete("https://YOUR-BACKEND.vercel.app/api/deleteUser/" + user._id)
+                axios.delete("https://crud-server-lake.vercel.app/api/deleteUser/" + user._id)
                 .then(() => {
                   setUsers((previousUsers) =>
                     previousUsers.filter((USER) => USER._id !== user._id)
